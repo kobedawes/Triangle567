@@ -20,18 +20,11 @@ class TestTriangles(unittest.TestCase):
     def testRightTriangleA(self): 
         self.assertEqual(classifyTriangle(3,4,5),'Right')
         self.assertEqual(classifyTriangle(5, 12, 13),'Right')
-        self.assertEqual(classifyTriangle(1, 1, math.sqrt(2)),'Right')
-        self.assertEqual(classifyTriangle(3, 4, 5),'Right')
-        self.assertEqual(classifyTriangle(math.sqrt(3), 1, 2),'Right')
-
 
     def testRightTriangleB(self): 
         self.assertEqual(classifyTriangle(5,3,4), 'Right')
         self.assertEqual(classifyTriangle(13, 12, 5), 'Right')
-        self.assertEqual(classifyTriangle(math.sqrt(2),1,1), 'Right')
-        self.assertEqual(classifyTriangle(2,1,math.sqrt(3)), 'Right')
-
-
+        
     def testIsoscelesA(self):
         self.assertEqual(classifyTriangle(1, 1, 3), 'Isosceles')
         self.assertEqual(classifyTriangle(3, 1, 3), 'Isosceles')
@@ -56,7 +49,22 @@ class TestTriangles(unittest.TestCase):
         self.assertEqual(classifyTriangle(5, 7, 10), 'NotATriangle')
         self.assertEqual(classifyTriangle(20, 5, 7), 'NotATriangle')
         self.assertEqual(classifyTriangle(5, 6, 20), 'NotATriangle')
-        
+
+    def testInvalidInputA(self):
+        self.assertEqual(classifyTriangle(300, 150, 200), 'InvalidInput')
+        self.assertEqual(classifyTriangle(200, 300, 150), 'InvalidInput')
+        self.assertEqual(classifyTriangle(150, 200, 300), 'InvalidInput')
+
+    def testInvalidInputB(self):
+        self.assertEqual(classifyTriangle(-34, 150, 200), 'InvalidInput')
+        self.assertEqual(classifyTriangle(300, -34, 200), 'InvalidInput')
+        self.assertEqual(classifyTriangle(300, 150, -34), 'InvalidInput')
+
+    def testInvalidInputC(self):
+        self.assertEqual(classifyTriangle(.08, 150, 200), 'InvalidInput')
+        self.assertEqual(classifyTriangle(300, '150', 200), 'InvalidInput')
+
+
 if __name__ == '__main__':
     print('Running unit tests')
     unittest.main()
