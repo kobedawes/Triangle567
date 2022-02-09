@@ -1,18 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Updated Jan 21, 2018
-The primary goal of this file is to demonstrate a simple unittest implementation
-
-@author: jrr
-@author: rk
-"""
-
 import unittest
-import math
 from Triangle import classifyTriangle
 
-# This code implements the unit test functionality
-# https://docs.python.org/3/library/unittest.html has a nice description of the framework
 
 class TestTriangles(unittest.TestCase):
     # define multiple sets of tests as functions with names that begin
@@ -26,9 +14,9 @@ class TestTriangles(unittest.TestCase):
         self.assertEqual(classifyTriangle(13, 12, 5), 'Right')
 
     def testIsoscelesTriangle(self):
-        self.assertEqual(classifyTriangle(1, 1, 3), 'Isosceles')
+        self.assertEqual(classifyTriangle(2, 2, 1), 'Isosceles')
         self.assertEqual(classifyTriangle(3, 1, 3), 'Isosceles')
-        self.assertEqual(classifyTriangle(5, 1, 1), 'Isosceles')
+        self.assertEqual(classifyTriangle(1, 5, 5), 'Isosceles')
     
     def testEquilateralTriangle(self): 
         self.assertEqual(classifyTriangle(1, 1, 1), 'Equilateral')
@@ -36,7 +24,7 @@ class TestTriangles(unittest.TestCase):
         self.assertEqual(classifyTriangle(5, 5, 5), 'Equilateral')
 
     def testScaleneTriangle(self):
-        self.assertEqual(classifyTriangle(1, 3, 5), 'Scalene')
+        self.assertEqual(classifyTriangle(2, 3, 4), 'Scalene')
         self.assertEqual(classifyTriangle(7, 5, 12), 'Scalene')
         self.assertEqual(classifyTriangle(6, 5, 8), 'Scalene')
 
